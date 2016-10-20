@@ -2,13 +2,14 @@ FROM docker.io/node:4.6-slim
 
 RUN apt update && apt install -y vim
 
-ADD sj-bridge.tar.gz /sj
-WORKDIR /sj/bridge
-
-#RUN npm install
-
 ENV NODE_ENV production
 ENV STORJ_BRIDGE_DIR /sj-data
+
+ADD ./sj-bridge.tar.gz /
+ADD ./entry.sh /
+WORKDIR /bridge
+
+ENTRYPOINT ["/entry.sh"]
 
 VOLUME ["/sj-data"]
 
