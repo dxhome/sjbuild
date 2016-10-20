@@ -1,4 +1,4 @@
-FROM docker.io/node:4.6-slim
+FROM node:4.6-slim
 
 RUN apt update && apt install -y vim
 
