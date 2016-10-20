@@ -1,1 +1,1 @@
-# Build script for storj componenets
+# Build script for storj components
