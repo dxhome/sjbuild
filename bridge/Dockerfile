@@ -7,7 +7,8 @@ ENV STORJ_BRIDGE_DIR /sj-data
 
 ADD ./sj-bridge.tar.gz /
 ADD ./entry.sh /
-WORKDIR /bridge
+RUN chmod +x /entry.sh
+WORKDIR /sj-bridge
 
 ENTRYPOINT ["/entry.sh"]
 
@@ -15,4 +16,4 @@ VOLUME ["/sj-data"]
 
 EXPOSE 80
 
-CMD node bin/storj-bridge.js
+CMD node bin/storj-bridge.js -d /sj-data
