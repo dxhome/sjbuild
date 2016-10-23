@@ -14,6 +14,4 @@ ENTRYPOINT ["/entry.sh"]
 
 VOLUME ["/sj-data"]
 
-EXPOSE 80
-
-CMD node bin/storj-bridge.js -d /sj-data
+CMD node bin/storj-bridge.js 

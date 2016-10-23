@@ -4,7 +4,7 @@ set -e
 
 SJENV=${NODE_ENV:-develop}
 SJHOME=${STORJ_BRIDGE_DIR:-$HOME}
-SJHOMECONFIG=$SJHOME/config/$SJENV
+SJHOMECONFIG=$SJHOME/.storj-bridge/config/$SJENV
 
 SJKEY="\"privateKey\": null"
 if [ ! -z $SJ_PRIKEY ]; then
@@ -13,7 +13,7 @@ fi
 
 SJPORT=${SJ_PORT:-6382}
 
-mkdir -p $SJHOME/config
+mkdir -p $SJHOME/.storj-bridge/config
 
 echo '' > $SJHOMECONFIG
 
