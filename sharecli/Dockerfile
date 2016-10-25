@@ -6,6 +6,8 @@ ENV SJ_DATADIR /sj-data
 
 ADD ./storjshare-cli.tar.gz /
 ADD ./entry.sh /
+RUN chmod +x /entry.sh
+
 WORKDIR /storjshare-cli
 
 ENTRYPOINT ["/entry.sh"]
