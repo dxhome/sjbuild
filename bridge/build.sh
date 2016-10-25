@@ -9,6 +9,7 @@ else
   cd ./bridge
 fi
 
+npm --registry http://registry.cnpmjs.org info underscore
 npm install
 cd ..
 
