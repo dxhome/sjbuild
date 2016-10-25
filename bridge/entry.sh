@@ -15,7 +15,7 @@ SJPORT=${SJ_PORT:-6382}
 
 mkdir -p $SJHOME/.storj-bridge/config
 
-echo '' > $SJHOMECONFIG
+: > $SJHOMECONFIG
 
 cat >> $SJHOMECONFIG << EOF
 {

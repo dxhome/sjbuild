@@ -19,9 +19,9 @@ else
   SJ_NAT=true
 fi
 
-echo '2Uu1iQskhW73PYdmCftKJDHiPAUpJgNVfW1qn6hCVPyHwh9KU3HdTWw6UYaSN9DVHrMuqiacrgHvtEhmdr93Pg9qi4J9AvigZsCwsv9J5XjddY' > $SJHOMEKEY
+echo -n "2Uu1iQskhW73PYdmCftKJDHiPAUpJgNVfW1qn6hCVPyHwh9KU3HdTWw6UYaSN9DVHrMuqiacrgHvtEhmdr93Pg9qi4J9AvigZsCwsv9J5XjddY" > $SJHOMEKEY
 
-echo '' > $SJHOMECONFIG
+: > $SJHOMECONFIG
 cat >> $SJHOMECONFIG << EOF
 {
   "keypath": "$SJHOMEKEY",
