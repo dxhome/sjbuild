@@ -4,14 +4,18 @@ set -e
 
 SJENV=${NODE_ENV:-develop}
 SJHOME=${STORJ_BRIDGE_DIR:-$HOME}
-SJHOMECONFIG=$SJHOME/config/$SJENV
+SJHOMECONFIG=$SJHOME/.storj-bridge/config/$SJENV
 
 SJKEY="\"privateKey\": null"
-if [ -z $SJ_PRIKEY ]; then
+if [ ! -z $SJ_PRIKEY ]; then
   SJKEY="\"privateKey\": \"$SJ_PRIKEY\""
 fi
 
-SJ_PRIKEY=${SJ_PRIKEY:-6382}
+SJPORT=${SJ_PORT:-6382}
+
+mkdir -p $SJHOME/.storj-bridge/config
+
+echo '' > $SJHOMECONFIG
 
 cat >> $SJHOMECONFIG << EOF
 {
@@ -30,8 +34,8 @@ cat >> $SJHOMECONFIG << EOF
   },
   "server": {
     "host": "127.0.0.1",
-    "port": $SJ_PRIKEY,
-    "timeout": 240000,0
+    "port": $SJPORT,
+    "timeout": 240000,
     "ssl": {
       "cert": null,
       "key": null,

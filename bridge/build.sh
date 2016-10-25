@@ -2,19 +2,21 @@
 
 set -e
 
-if [ -d ./bridge ]; then
-  cd ./bridge && git pull
-else
-  git clone https://github.com/Storj/bridge
-  cd ./bridge
-fi
+#CODEDIR=./sj-bridge
 
-npm --registry http://registry.cnpmjs.org info underscore
-npm install
-cd ..
+#if [ -d $CODEDIR ]; then
+#  cd $CODEDIR && git pull
+#else
+#  git clone https://github.com/dxhome/sj-bridge
+#  cd $CODEDIR
+#fi
 
-rm -f sj-bridge.tar.gz
+#npm --registry http://registry.cnpmjs.org info underscore
+#npm install
+#cd ..
 
-tar cfz sj-bridge.tar.gz ./bridge/ 
+#rm -f sj-bridge.tar.gz
+
+#tar cfz sj-bridge.tar.gz $CODEDIR
 
 docker build -t sj-bridge:0.1 .

@@ -1,0 +1,18 @@
+[Unit]
+Description=SJ Bridge Service
+After=network.target
+Requires=
+
+[Service]
+Type=simple
+Environment=PATH=/sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin:/usr/games:/usr/lib/mit/bin:/usr/local/nodejs/bin:/root/.nvm/versions/node/v4.5.0/bin/
+Environment=STORJ_BRIDGE_DIR=/root/
+WorkingDirectory=/root/storj/sj-bridge
+ExecStart=/root/storj/sj-bridge/bin/storj-bridge.js
+ExecReload=
+Restart=always
+RestartSec=1s
+
+[Install]
+WantedBy=multi-user.target
+
