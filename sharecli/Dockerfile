@@ -14,4 +14,4 @@ ENTRYPOINT ["/entry.sh"]
 
 VOLUME ["/sj-data"]
 
-CMD node bin/storjshare.js start -p pass
+CMD node bin/storjshare.js start -p pass -d $SJ_DATADIR

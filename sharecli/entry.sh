@@ -2,16 +2,15 @@
 
 set -e
 
-SJHOME=/root/.storjshare
-SJHOMECONFIG=$SJHOME/config.json
-SJHOMEKEY=$SJHOME/id_ecdsa
+SJ_DATADIR=${SJ_DATADIR:-/root/.storjshare}
+SJHOMECONFIG=$SJ_DATADIR/config.json
+SJHOMEKEY=$SJ_DATADIR/id_ecdsa
 
-mkdir -p $SJHOME
+mkdir -p $SJ_DATADIR
 
 SJ_PUBIP=${SJ_PUBIP:-127.0.0.1}
 SJ_PORT=${SJ_PORT:-4000}
 SJ_SEED=${SJ_SEED:-storj://54.223.163.9:4001/f03310e932cc692320dd5ba957e8156966f1aa94}
-SJ_DATADIR=${SJ_DATADIR:-$SJHOME}
 
 if [ -z $SJ_NAT ]; then
   SJ_NAT=false
@@ -19,7 +18,9 @@ else
   SJ_NAT=true
 fi
 
-echo -n "2Uu1iQskhW73PYdmCftKJDHiPAUpJgNVfW1qn6hCVPyHwh9KU3HdTWw6UYaSN9DVHrMuqiacrgHvtEhmdr93Pg9qi4J9AvigZsCwsv9J5XjddY" > $SJHOMEKEY
+if ! [ -f $SJHOMEKEY ]; then
+  node bin/storjshare.js gen-key -k $SJHOMEKEY -p pass
+fi
 
 : > $SJHOMECONFIG
 cat >> $SJHOMECONFIG << EOF
