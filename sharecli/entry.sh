@@ -43,10 +43,10 @@ cat >> $SJHOMECONFIG << EOF
     ],
     "forward": $SJ_NAT,
     "tunnels": 0,
-    "tunnelport": 5100,
+    "tunnelport": 0,
     "gateways": {
-      "min": 5102,
-      "max": 5014
+      "min": 0,
+      "max": 0
     },
     "concurrency": 3
   },
